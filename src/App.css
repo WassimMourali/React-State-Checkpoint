@@ -1,38 +1,151 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: 'Arial', sans-serif;
+  background-image: url('https://img.freepik.com/free-vector/abstract-blue-circle-black-background-technology_1142-12714.jpg?t=st=1723139837~exp=1723143437~hmac=4c5ce9b44d5bba218f2d0ddde135a9ca7685f7b40d57ef3a7fa851446700007d&w=996');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: hwb(256 10% 11%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.toggle-button:hover {
+  background-color: hsl(65, 78%, 67%);
+  transform: scale(1.05);
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, hsl(210, 50%, 30%), hsl(158, 36%, 40%));
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px;
+  z-index: 2;
+}
+
+.profile:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-details {
+  text-align: center;
+  z-index: 2;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  animation: fadeIn 5s ease-out;
+}
+
+.profile-bio {
+  font-size: 18px;
+  color: #ccc;
+  margin: 10px 0;
+  animation: fadeIn 2s ease-out 0.5s;
+}
+
+.profile-profession {
+  font-size: 20px;
+  color: #00d084;
+  margin: 0;
+  animation: fadeIn 2s ease-out 1s;
+  margin-bottom: 50px;
+}
+
+.profile-icons {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.profile-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(to right, hsl(210, 50%, 30%), hsl(158, 36%, 40%));
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.profile-icons a:hover {
+  background: #444;
+  transform: scale(1.1);
+}
+
+.mounted-time {
+  margin-top: -20px;
+  font-size: 100px;
+  color: #fff;
+  animation: colorChange 1s infinite;
+}
+
+@keyframes colorChange {
+  50% { color: #2ded0f; }
+  100% { color: hwb(129 12% 37%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .profile {
+    padding: 15px;
+    margin: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .profile-bio, .profile-profession, .mounted-time {
+    font-size: 16px;
   }
 }
